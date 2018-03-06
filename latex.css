@@ -268,6 +268,22 @@ zek p {
 	text-align: center;
 }
 
+new p {
+	background-color: black;
+	width: 1250px;  
+	height: 40px;
+	margin-top: none;
+	text-align: left;
+	padding-top:15px;
+	padding-bottom: 10px;
+	margin-top: 1px;
+	margin-left: 40px;
+	font-size: 2em;
+	font-family: Century Gothic;
+	font-weight: light;
+	text-align: center;
+	text-shadow: 4px 4px 6px turquoise	, 0 0 2em turquoise	;
+}
 
 menu p {
 	background-color: black;
@@ -299,5 +315,6 @@ porno p {
 	font-weight: light;
 	padding-left: 1px;
 	text-align: center;
+	text-shadow: 4px 4px 6px silver , 0 0 2em silver;
 	
 }
