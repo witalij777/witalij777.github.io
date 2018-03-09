@@ -121,8 +121,12 @@
       }, 20);
     } 
 	
-	var person = "з ДН малий";
-		alert("Тьомка," + person);
+	var person;
+		if(confirm("Ти точно з Падзамче -_- ?")) {
+			person = prompt("Салам брат(ка), как імя твойо пішітся?");
+			alert("йоу," + person);
+		} else 
+			alert("Person not sure");
 </script>
 
 </body>
