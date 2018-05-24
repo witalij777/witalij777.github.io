@@ -228,14 +228,6 @@ hr {
 	border: 2px solid gray; 
 	margin-right: 2%;
 	box-sizing: border-box;
-	/*float: left;
-	width: 31.3333%;
-	border: 2px solid gray;
-	box-sizing: border-box;
-	border-radius: 10px;
-	background-color: oldlace;
-	margin-right: 2%;
-	min-height: 450px; */
 }
 
 #blok_pierwszy #blok_drugi trzeci img {
@@ -347,7 +339,7 @@ hr {
 
 #galaxy_information {
 	width: 90%; 
-	height: 500px;
+	min-height: 500px;
 	border-box: bottom-box; 
 	border: 2px solid gray;
 	border-radius: 20px;
