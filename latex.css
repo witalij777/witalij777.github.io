@@ -159,14 +159,23 @@ hr {
 }
 
 #wrapper #articles article {
-	float: left;
+	float: left; 
+	width: 31.333%;
+	min-height: 450px; 
+	background-color: oldlace; 
+	border-radius: 10px; 
+	border: 2px solid gray; 
+	margin-right: 2%;
+	box-sizing: border-box;
+	
+	/*float: left;
 	width: 31.3333%;
 	border: 2px solid gray;
 	box-sizing: border-box;
 	border-radius: 10px;
 	background-color: oldlace;
 	margin-right: 2%;
-	min-height: 450px;
+	min-height: 450px; */
 }
 
 #wrapper #articles article img {
@@ -211,14 +220,22 @@ hr {
 }
 
 #blok_pierwszy #blok_drugi trzeci {
-	float: left;
+	float: left; 
+	width: 31.333%;
+	min-height: 450px; 
+	background-color: oldlace; 
+	border-radius: 10px; 
+	border: 2px solid gray; 
+	margin-right: 2%;
+	box-sizing: border-box;
+	/*float: left;
 	width: 31.3333%;
 	border: 2px solid gray;
 	box-sizing: border-box;
 	border-radius: 10px;
 	background-color: oldlace;
 	margin-right: 2%;
-	min-height: 450px;
+	min-height: 450px; */
 }
 
 #blok_pierwszy #blok_drugi trzeci img {
