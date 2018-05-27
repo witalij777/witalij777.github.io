@@ -167,13 +167,13 @@ hr {
 	box-sizing: border-box; 
 }
 	
-@media (min-width: 600px) {
+@media (min-width: 800px) {
 #wrapper #articles article {
 	width: 31.333%;
 	margin-rigth: 2%;
 }}
 
-@media (max-width: 599px) {
+@media (max-width: 799px) {
 #wrapper #articles article {
 	width: 98%; 
 }}
