@@ -348,7 +348,7 @@ hr {
 
 #galaktyka #in_galaktyka span {
 	width: 100%; 
-	font-size: 3em;
+	font-size: 100%;
 	font-family: Comic Sans MS, sans-serif;
 	margin-left: 38%;
 	color: #333;
@@ -376,7 +376,7 @@ hr {
 
 #galaxy_information #galaxy_center {
 	width: 97%; 
-	float: left;
+	float: center;
 }
 
 #galaxy_information #galaxy_center #pravy { 
