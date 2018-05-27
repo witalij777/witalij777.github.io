@@ -176,7 +176,6 @@ hr {
 @media (max-width: 699px) {
 #wrapper #articles article {
 	width: 98%; 
-	margin-bottom: 10px;
 }}
 
 #wrapper #articles article img {
