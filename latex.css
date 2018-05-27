@@ -411,8 +411,8 @@ hr {
 }
  
 #SL_in {
-	width: auto;    /* 538 */
-	height: auto;
+	width: 538px;    
+	height: 538px;
 	float: left; 
 	border-radius: 30%;
 	overflow: hidden;
