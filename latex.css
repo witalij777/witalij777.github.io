@@ -409,19 +409,16 @@ hr {
 	 
 	float: left; 
 }
-
+ 
 #SL_in {
-	width: 538px;
-	height: 538px;
+	width: auto;    /* 538 */
+	height: auto;
 	float: left; 
 	border-radius: 30%;
 	overflow: hidden;
 	margin-top: 50px;
 	margin-bottom: 50px;
 	margin-left: 430px;
-
-
-
 }
 
 #slider {
