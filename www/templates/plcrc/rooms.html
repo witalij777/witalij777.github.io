@@ -1,0 +1,38 @@
+﻿<script type="text/ng-template" id="search.html">
+    <ion-popover-view style="height:70px;width:250px">
+        <ion-content>
+            <div class="list">
+                <div class="item item-input-inset">
+                    <i class="icon ion-ios-search placeholder-icon"></i>
+                    <input autofocus id="filterTextField" type="text" placeholder="Room attribute" ng-model="filter.text">
+                    <button class="button button-clear ion-backspace-outline" ng-click="filter.text=''"></button>
+                </div>
+            </div>
+        </ion-content>
+    </ion-popover-view>
+</script>
+<ion-view view-title="Meeting rooms">
+    <ion-nav-buttons side="right">
+        <a class="button ion-funnel" ng-click="popover.show($event)">
+            <i ng-show="filter.text">Filter</i>
+            <B>{{filter.text}}</B>
+        </a>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="list">
+            <div ng-repeat="room in filteredConfRooms = (confRooms| filter:filter.text | orderBy:['location.name','floor'] )"> 
+                <div ng-if="filteredConfRooms[$index].location.name!=filteredConfRooms[$index-1].location.name" class="item item-divider">
+                  {{room.location.name}}
+                </div>
+                <a class="item item-thumbnail-left"
+                    href="#/app/plcrc/room?id={{room.objectId}}">
+                    <img ng-src="./img/rooms/miniatures/{{room.name}}.jpg">
+                    <h2>{{room.name}}</h2>
+                    <p>{{room.floorName}}</p>
+                    <p>{{room.location.name}}</p>
+                    <span class="badge ion-arrow-right-c" />
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

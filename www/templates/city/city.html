@@ -1,0 +1,39 @@
+﻿<ion-view view-title="About Kraków">
+    <ion-content>
+        <ion-list>
+            <ion-item>
+                <ion-slide-box on-slide-changed="slideHasChanged($index)">
+                    <ion-slide ng-repeat="i in [1,2,3]">
+                        <img class="full-image" ng-src="./img/city/krakow_{{i}}.jpg">
+                    </ion-slide>
+                </ion-slide-box>
+            </ion-item>
+            <ion-item class="item">
+                <h2>
+                    Kraków (also Cracow, or Krakow), is the second largest and one of the oldest cities in Poland. Situated on the Vistula River in the Lesser Poland region, the city dates back to the 7th century. Kraków has traditionally been one of the leading centres of Polish academic, cultural, and artistic life and is one of Poland's most important economic hubs. Krakow is also famous for its myriad restaurants and nightspots.
+                </h2>
+            </ion-item>
+            <ion-item class="icon-city-www">
+                <a browse-to="http://www.krakow.pl">
+                    Krakow official web page
+                    <span class="badge ion-arrow-right-c" />
+                </a>
+            </ion-item>
+            <ion-item class="icon-city-founded">
+                Founded
+                <span class="badge">7th century</span>
+            </ion-item>
+            <ion-item class="icon-city-university">
+                Universities
+                <span class="badge">23</span>
+            </ion-item>
+            <ion-item class="icon-city-population">
+                Population
+                <span class="badge">760 000</span>
+            </ion-item>
+            <ion-item class="icon-city-capital">
+                Former capital of Poland
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

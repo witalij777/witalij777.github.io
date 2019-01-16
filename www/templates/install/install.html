@@ -1,0 +1,17 @@
+﻿<ion-view view-title="Install">
+    <ion-content>
+        <ion-list>
+            <ion-item>
+                <img class="full-image" ng-src="./img/plcrc_front.jpg">
+            </ion-item>
+            <div class="row responsive-sm">
+                <div class="col"  ng-repeat="item in ::run_options">
+                    <div ng-click="trigger_action($index)" class="item item-body text-center">
+                        <div class="button button-icon icon {{::run_options[$index].icon}}"></div>
+                        <div class="">{{::run_options[$index].title}}</div>
+                    </div>
+                </div>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

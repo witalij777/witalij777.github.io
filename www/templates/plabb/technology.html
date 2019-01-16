@@ -1,0 +1,22 @@
+﻿<ion-view view-title="Technology">
+    <ion-content>
+        <div class="row responsive-sm" ng-repeat="element in ::elements" ng-if="$index % 2 == 0">
+            <div class="col item" ng-click="elements[$index].open=!elements[$index].open">
+                <a>   
+                    <div class="dna-image" ng-include="'./img/plabb/'+elements[$index].image"></div>
+                </a>
+                <div class="dna-header" ng-bind-html="::elements[$index].name"></div>
+                <span class="item-note" ng-class="elements[$index].open?'ion-chevron-up':'ion-chevron-down'">&nbsp;</span>
+                <h2 class="row slide-toggle" ng-show="elements[$index].open" ng-bind-html="::elements[$index].description"></h2>
+            </div>
+            <div class="col item" ng-click="elements[$index+1].open=!elements[$index+1].open">
+                <a>
+                    <div class="dna-image" ng-include="'./img/plabb/'+elements[$index+1].image"></div>
+                </a>
+                <div class="dna-header" ng-bind-html="::elements[$index+1].name"></div>
+                <span class="item-note" ng-class="elements[$index+1].open?'ion-chevron-up':'ion-chevron-down'">&nbsp;</span>
+                <h2 class="row slide-toggle" ng-show="elements[$index+1].open"  ng-class="" ng-bind-html="::elements[$index+1].description"></h2>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

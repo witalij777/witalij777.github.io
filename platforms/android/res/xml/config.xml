@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget android-versionCode="1" id="com.abb.crckrakow" version="0.2.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <feature name="NativePageTransitions">
+        <param name="android-package" value="com.telerik.plugins.nativepagetransitions.NativePageTransitions" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="AppVersion">
+        <param name="android-package" value="uk.co.whiteoctober.cordova.AppVersion" />
+    </feature>
+    <feature name="Calendar">
+        <param name="android-package" value="nl.xservices.plugins.Calendar" />
+    </feature>
+    <feature name="CertificatesPlugin">
+        <param name="android-package" value="de.martinreinhardt.cordova.plugins.CertificatesPlugin" />
+    </feature>
+    <feature name="EmailComposer">
+        <param name="android-package" value="de.appplant.cordova.emailcomposer.EmailComposer" />
+    </feature>
+    <feature name="InAppBrowser">
+        <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+    </feature>
+    <feature name="NetworkStatus">
+        <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
+    </feature>
+    <feature name="SplashScreen">
+        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Whitelist">
+        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="LaunchNavigator">
+        <param name="android-package" value="uk.co.workingedge.phonegap.plugin.LaunchNavigator" />
+    </feature>
+    <feature name="BLE">
+        <param name="android-package" value="com.megster.cordova.ble.central.BLECentralPlugin" />
+    </feature>
+    <name>CRC Krakow</name>
+    <description>Visit PLCRC project</description>
+    <author email="marcin.bajer@pl.abb.com" href="http://www.abb.com/plcrc/">Marcin Bajer</author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="*" />
+    <allow-navigation href="*" />
+    <allow-navigation href="http://10.3.57.200:8100" />
+    <allow-navigation href="http://192.168.11.106:8100" />
+    <allow-navigation href="http://192.168.11.48:8100" />
+    <icon density="ldpi" src="resources/android/icon/Android_24_ldpi.png" />
+    <icon density="mdpi" src="resources/android/icon/Android_48_mdpi.png" />
+    <icon density="hdpi" src="resources/android/icon/Android_72_hdpi.png" />
+    <icon density="xhdpi" src="resources/android/icon/Android_96_xhdpi.png" />
+    <icon density="xxhdpi" src="resources/android/icon/Android_144_xxhdpi.png" />
+    <icon density="xxxhdpi" src="resources/android/icon/Android_144_xxhdpi.png" />
+    <splash density="land-xxhdpi" src="resources/android/splash/drawable-land-screen.png" />
+    <splash density="port-xxhdpi" src="resources/android/splash/drawable-port-screen.png" />
+    <preference name="loglevel" value="DEBUG" />
+    <preference name="webviewbounce" value="false" />
+    <preference name="UIWebViewBounce" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="android-minSdkVersion" value="19" />
+    <preference name="BackupWebStorage" value="local" />
+    <preference name="SplashScreen" value="screen" />
+    <preference name="SplashScreenDelay" value="7000" />
+    <preference name="Fullscreen" value="False" />
+    <preference name="InAppBrowserStorageEnabled" value="True" />
+    <preference name="ShowTitle" value="True" />
+    <preference name="AndroidLaunchMode" value="standard" />
+    <preference name="CrosswalkAnimatable" value="true" />
+    <preference name="KeepRunning" value="True" />
+    <preference name="xwalkVersion" value="22+" />
+    <preference name="SuppressesIncrementalRendering" value="True" />
+</widget>

@@ -1,0 +1,42 @@
+<ion-view view-title="ABB in Poland">
+    <ion-content>
+        <ion-list>
+
+            <ion-item>
+                <div class="row">
+                    <div class="col col-60" ng-include="'plabb/plabb.svg'">
+
+                    </div>                    
+
+                    <div class="col col-40" on-swipe-down="swipeDown()" on-swipe-up="swipeUp()">
+                        <ion-radio ng-model="selectedLocation.idx" ng-value="$index" class="location_swipe" icon="ion-arrow-left-b" ng-repeat="i in ::localizations">
+                            {{::i.name}}
+                        </ion-radio>
+                    </div>
+                </div>
+            </ion-item>
+            <ion-item ng-click="callNumber('tel: '+localizations[selectedLocation.idx].phone)" class="icon-contact-phone">
+                Phone
+                <span class="item-note">{{localizations[selectedLocation.idx].phone}}</span>
+            </ion-item>
+            <ion-item ng-click="callNumber('#/app/plcrc/location?position=['+localizations[selectedLocation.idx].position+']')" class="icon-contact-address">
+                Address
+                <span class="item-note" ng-bind-html="localizations[selectedLocation.idx].address|linedivider"> </span>
+            </ion-item>
+            <ion-item class="ion-ios-paper-outline" ng-if="localizations[selectedLocation.idx].nip">
+                NIP
+                <span class="item-note">{{localizations[selectedLocation.idx].nip}}</span>
+            </ion-item>
+            <ion-item class="ion-ios-paper" ng-if="localizations[selectedLocation.idx].regon">
+                REGON
+                <span class="item-note">{{localizations[selectedLocation.idx].regon}}</span>
+            </ion-item>
+            <ion-item class="wrap">
+                {{localizations[selectedLocation.idx].description}}
+            </ion-item>
+
+              
+
+</ion-list>
+    </ion-content>
+</ion-view>

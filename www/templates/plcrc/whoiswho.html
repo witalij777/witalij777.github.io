@@ -1,0 +1,11 @@
+﻿<ion-view view-title="Who is who?">
+  <ion-content>
+      <div class="list">
+          <div class="item item-thumbnail-left" ng-repeat="person in ::whoIsWho|orderBy:'order'">
+              <img fallback-src="./img/whoiswho/default.jpg" ng-src="./img/whoiswho/{{::person.icon}}.jpg">
+              <h2>{{::person.name}}</h2>
+              <p ng-bind-html="person.position|linedivider"></p>
+          </div>
+      </div>
+  </ion-content>
+</ion-view>

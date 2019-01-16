@@ -1,0 +1,31 @@
+<ion-view view-title="Evacuation instruction">
+    <ion-nav-buttons side="right">
+        <a class="button ion-android-call" href="tel:+48222238400">Office emergency</a>
+    </ion-nav-buttons>
+    <ion-content>
+        <div ng-include="'./img/plan/common.svg'"></div>
+        <ion-slide-box class="slides slide-box-limit-width" active-slide="selectedFloor.idx">
+            <ion-slide ng-click="showModal($index)" ng-repeat="floor in ::selectableFloors" style="min-height:50px">
+                <p ng-if="(selectedLocation.name=='Starowiślna 13A') && $index >= (selectedFloor.idx-selectedFloor.siblings) && $index <= (selectedFloor.idx+selectedFloor.siblings)" ng-include="'plcrc/map.svg'"></p>
+                <p ng-if="(selectedLocation.name!='Starowiślna 13A') && $index >= (selectedFloor.idx-selectedFloor.siblings) && $index <= (selectedFloor.idx+selectedFloor.siblings)" ng-include="floor.url"></p>
+            </ion-slide>
+        </ion-slide-box>
+        <div class="floor-name">{{selectedFloor.idx-1}}</div>
+        <div id="evacuation" class="list">
+            <div class="item item-thumbnail-left" ng-repeat="step in ::evacuationSteps">
+                <img ng-src="{{::step.img}}">
+                <h2>{{::step.text}}</h2>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
+
+<script id="image-modal.html" type="text/ng-template">
+    <div class="adic-modal" ng-click="closeModal()">
+        <ion-modal-view class="modal-bottom" height="100px">
+            <ion-scroll direction="xy" style="height:500px;">
+                <div ng-include="'plcrc/map.svg'" style="height:300px; transform: translate(90px, 70px) scale(1.5);"></div>
+            </ion-scroll>
+        </ion-modal-view>
+    </div>
+</script>

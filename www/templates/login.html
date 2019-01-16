@@ -1,0 +1,37 @@
+<ion-view view-title="Sign-In" name="login-view">
+    <div class="bar bar-header bar-light">
+        <h1 class="title">Login required</h1>
+    </div>
+    <ion-tabs class="tabs-positive tabs-top tabs-icon-top">
+        <ion-tab title="PIN login" icon-on="ion-ios-keypad" icon-off="ion-ios-keypad-outline">
+            <ion-nav-view name="tab-2">
+                <ion-content padding="true" has-header="false">       
+                    <div class="list list-inset">
+                        <label class="item item-input">
+                            <input placeholder="PIN number" type="tel" maxlength="4" ng-model="data.pin">
+                        </label>
+                    </div>
+                    <button class="button button-block button-positive" ng-click="login(data)">Login</button>
+                </ion-content>
+            </ion-nav-view>
+        </ion-tab>
+
+        <!--<ion-tab title="ABB login" icon-on="ion-ios-locked" icon-off="ion-ios-locked-outline">
+            <ion-nav-view name="tab-2">
+                <ion-content padding="true" has-header="false">
+                    <div class="list list-inset">
+                        Not working yet !!!
+                        <label class="item item-input">
+                            <input type="text" placeholder="ABB email address" ng-model="data.username">
+                        </label>
+                        <label class="item item-input">
+                            <input type="password" placeholder="Password" ng-model="data.password">
+                        </label>
+                    </div>
+                    <button class="button button-block button-positive" ng-click="login(data)" disabled>Login</button>
+                </ion-content>
+            </ion-nav-view>
+        </ion-tab>-->
+
+    </ion-tabs>  
+</ion-view>

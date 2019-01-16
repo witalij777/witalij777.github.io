@@ -1,0 +1,21 @@
+﻿<ion-view view-title="Near me">
+    <ion-content>
+        <div class="list">
+            <a class="item item-avatar" ng-if="device.room" ng-repeat="device in devices" href="#/app/plcrc/room?id={{device.room.objectId}}">
+                <img src="./img/rooms/miniatures/{{device.room.name}}.jpg">
+                <h2>{{device.room.name}}</h2>
+                <p>{{device.room.floorName}}</p>
+                <span class="badge ion-arrow-right-c" />
+            </a>
+        </div>
+        <ion-list>
+            <ion-item ng-repeat="device in devices" type="item-text-wrap" href="#/devices/{{device.name}}">
+                <h2>Name: {{device.name}}</h2>
+                <p>ID: {{device.id}}</p>
+                <p>RSSI: {{device.rssi}}</p>
+                <p>Last seen: {{device.lastSeen | date : 'HH:mm:ss'}}</p>
+            </ion-item>
+        </ion-list>
+        <button class="button button-stable button-block" ng-click="scanDevices()">Refresh List</button>
+    </ion-content>
+</ion-view>

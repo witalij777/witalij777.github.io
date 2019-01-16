@@ -1,0 +1,29 @@
+{
+  "name": "visit-plcrc",
+  "integrations": {
+    "cordova": {},
+    "gulp": {}
+  },
+  "type": "ionic1",
+  "browsers": [
+    {
+      "platform": "android",
+      "browser": "crosswalk",
+      "version": "12.41.296.5"
+    }
+  ],
+  "gulpStartupTasks": [
+    "default",
+    "sass",
+    "templatecache",
+    "ng_annotate",
+    "useref",
+    "svg",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*",
+    "scss/**/*"
+  ]
+}

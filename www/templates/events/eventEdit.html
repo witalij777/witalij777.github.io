@@ -1,0 +1,84 @@
+﻿<script id="icon_picker.html" type="text/ng-template">
+    <ion-list>
+        <ion-radio ng-repeat="icon in ::icons" ng-click="selectIcon(icon.icon)">
+            <div class="item-icon-left">
+                <i class="icon icon-{{::icon.icon}}"></i>
+                <h2>{{::icon.name}}</h2>
+            </div>
+        </ion-radio>
+    </ion-list>
+</script>
+
+<script id="type_picker.html" type="text/ng-template">
+    <ion-list>
+        <ion-radio ng-repeat="icon in ::sessionTypes" ng-click="selectIcon(icon.icon)">
+            <div class="item-icon-left">
+                <i class="icon icon-{{::icon.icon}}"></i>
+                <h2>{{::icon.name}}</h2>
+            </div>
+        </ion-radio>
+    </ion-list>
+</script>
+
+<script id="room_picker.html" type="text/ng-template">
+  <div class="list">
+
+     <div class="tabs item">
+        <a class="tab-item active" ng-click="roomPickerType = 'meeting'" >
+            <i class="icon-plcrc-meeting"></i>
+            Rooms
+        </a>
+        <a class="tab-item" href="#" ng-click="roomPickerType = 'restaurant'">
+            <i class="icon-navigate-restaurant"></i>
+            Restaurants
+        </a>
+      </div>
+
+      <a class="item item-avatar" ng-repeat="room in ::rooms| orderBy:'floor'" ng-click="selectRoom(room)" ng-if="roomPickerType == 'meeting'">
+        <img src="./img/rooms/miniatures/{{::room.name}}.jpg">
+        <h2>{{::room.name}}</h2>
+        <p>{{::room.floorName}}</p>
+      </a>
+
+      <a class="item item-avatar" ng-repeat="restaurant in ::restaurants| orderBy:'order'" ng-click="selectSpot(restaurant)" ng-if="roomPickerType == 'restaurant'">
+          <img src="./img/city/restaurant/{{::restaurant.objectId}}_mini.jpg">
+          <h2>{{::restaurant.name}}</h2>
+          <p>{{::restaurant.address}}</p>
+      </a>
+    </div>
+</script>
+
+<ion-view ng-init="filterText=''" view-title="{{event.name}}">
+    <ion-nav-buttons side="right">
+        <a class="button icon-save" ng-click="save()">Save</a>
+    </ion-nav-buttons>
+
+    <ion-content>
+        <div class="row responsive-sm">
+            <span class="button button-dark icon-left ion-plus-circled" ng-click="addSession()">Add new session</span>
+        </div>
+        <div class="list">
+            <div ng-repeat="session in sessions">
+                <div ng-if="newDay($index)" class="item item-divider">
+                    {{session.startDate.iso|date:'EEEE, MMMM d, y'}}
+                </div>
+                <a class="item item-icon-left item-icon-right">
+                    <i class="icon icon-{{session.icon}}" ng-click="openIconPicker(session)"></i>
+                    <input type="text" ng-model="session.name" select-on-click/>
+                    <p>                        
+                        <span class="button button-dark" ng-click="openDatePicker(session.startDate)">{{session.startDate.iso|date:"HH:mm":'GMT' }}</span>
+                        <span class="button button-dark" ng-click="openDatePicker(session.endDate)">{{session.endDate.iso|date:"HH:mm":'GMT' }}</span>
+                        <span class="button icon-right ion-trash-b button-clear" ng-click="removeSession(session.objectId)"></span>
+                    </p>
+                    <div class="icon">
+                        <i class="icon-{{session.type}}" style="margin-right:10px" ng-click="openMeetingTypePicker(session)"></i>
+                        <p class="button button-dark" ng-click="openRoomPicker(session)">{{session.roomName}}{{session.spotName}}</p><br />
+                    
+                    </div>
+
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
+`

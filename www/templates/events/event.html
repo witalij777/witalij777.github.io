@@ -1,0 +1,54 @@
+﻿<script type="text/ng-template" id="search.html">
+    <ion-popover-view style="height:70px;width:250px">
+        <ion-content>
+            <div class="list">
+                <div class="item item-input-inset">
+                    <i class="icon ion-ios-search placeholder-icon"></i>
+                    <input autofocus id="filterTextField" type="text" placeholder="Find in events" ng-model="filter.text">
+                    <button class="button button-clear ion-backspace-outline" ng-click="filter.text=''"></button>
+                </div>
+            </div>
+        </ion-content>
+    </ion-popover-view>
+</script>
+<ion-view ng-init="filterText=''" view-title="{{::event.name}}">
+    <ion-nav-buttons side="right">
+        <a class="button ion-edit" ng-if="isAgendaEditEnabled()" href="#/app/events/eventEdit?id={{::event.objectId}}">Edit</a>
+        <a class="button ion-funnel" ng-click="popover.show($event)">
+            <i>Filter</i>
+            <B>{{filter.text}}</B>
+        </a>
+    </ion-nav-buttons>
+
+    <ion-content>
+
+        <div class="list">
+            <div ng-repeat="session in sessions | filter:filter.text">
+                <div ng-if="newDay($index)" class="item item-divider">
+                    {{::session.startDate.iso|date:'EEEE, MMMM d, y':'-0200'}}
+                </div>
+                <div ng-if="::session.type=='headline'" class="button button-full button-clear button-positive">
+                    {{::session.name}}
+                </div>
+                <a ng-if="::session.type!='headline'" class="item item-icon-left item-icon-right" href="{{getLink(session)}}">
+                    <i class="icon icon-{{::session.icon}}"></i>
+                    <h2>{{::session.name}}</h2>
+                    <p>
+                        {{::session.startDate.iso|date:"HH:mm":'GMT' }}
+                        <i ng-if="session.startDate.iso&&session.endDate.iso">-</i>
+                        {{::session.endDate.iso|date:"HH:mm":'GMT' }}
+                    </p>
+                    <div class="icon">
+                        <p>
+                            <ion-spinner ng-if="isOngoing(session)" class="spinner-balanced" icon="dots"></ion-spinner>
+                            <br />
+                            <i ng-if="session.roomName">{{::session.roomName}}</i>
+                            <i ng-if="session.spotName">{{::session.spotName}}</i>
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
+`

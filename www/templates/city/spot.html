@@ -1,0 +1,34 @@
+﻿<ion-view view-title="{{::spot.name}}">
+    <ion-nav-buttons side="right">
+        <a class="button ion-navigate" ng-if="isMobileDevice()" ng-click="getDirections()">Navigate</a>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-item>
+            <img class="full-image" fallback-src="./img/city/{{::spot.type}}/default.jpg" ng-src="{{::'./img/city/'+spot.type+'/'+(spot.objectId)+'.jpg'}}">
+        </ion-item>
+
+        <ion-item class="icon-city-spot">
+            {{::spot.info}}
+        </ion-item>
+
+        <ion-item href="#/app/plcrc/location?spotId={{::spot.objectId}}">
+            <div class="icon-plcrc-location">
+                Location
+                <span class="item-note">{{::spot.address}}</span>
+            </div>
+        </ion-item>
+
+        <ion-item ng-repeat="spotAttribute in ::spotAttributes | orderBy: order" browse-to="{{spotAttribute.icon|linkType}}{{makeLink(spotAttribute.type) ? spotAttribute.value:null}}">
+            <div ng-class="'icon-'+spotAttribute.icon" >
+                <span ng-bind-html="::spotAttribute.title|nolinedivider"></span>
+                <span ng-if="::spotAttribute.icon=='pedestrian'" class="item-note">{{::spotAttribute.value|distanceMeters}}</span>
+                <span ng-if="::showValue(spotAttribute.type)" class="item-note" ng-bind-html="::spotAttribute.value|linedivider"></span>
+                <span ng-if="::spotAttribute.icon=='money'" class="item-note">{{::spotAttribute.value|money}}</span>
+                <span ng-if="makeLink(spotAttribute.type)" class="badge ion-arrow-right-c" />
+            </div>
+        </ion-item>
+
+
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,38 @@
+﻿
+<ion-view title="Contact">
+    <ion-content>
+        <ion-list>
+            <ion-item>
+                <ion-slide-box class="slide-box-limit-width" on-slide-changed="slideHasChanged($index)">
+                    <ion-slide>
+                        <img class="full-image" src="./img/reception.jpg">
+                    </ion-slide>
+                </ion-slide-box>
+            </ion-item>
+            <ion-item ng-click="goToLocation()" class="icon-contact-address">
+                Address
+                <span class="item-note">Starowiślna 13A, 31-038 Kraków</span>
+            </ion-item>
+            <ion-item ng-click="mailPlcrc()" class="icon-contact-email">
+                Email
+                <span class="item-note">plcrcoffice@pl.abb.com</span>
+            </ion-item>
+            <ion-item browse-to="http://www.abb.com/plcrc" class="icon-contact-www">
+                WWW
+                <span class="item-note">www.abb.com/plcrc</span>
+            </ion-item>
+            <ion-item ng-click="callNumber('tel: +48 22 223 9500')" class="icon-contact-phone">
+                Phone
+                <span class="item-note">+48 22 223 9500</span>
+            </ion-item>
+            <ion-item ng-click="callNumber('tel: +48 22 223 7777')" class="icon-contact-contact-center">
+                ABB Contact Center
+                <span class="item-note">+48 22 223 7777</span>
+            </ion-item>
+            <ion-item ng-click="callNumber('tel: +41 43 317 7700')" class="icon-ambulance">
+                ABB Emergency Line
+                <span class="item-note">+41 43 317 7700</span>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

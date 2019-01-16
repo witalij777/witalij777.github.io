@@ -1,0 +1,57 @@
+﻿<ion-view view-title="Session Details">
+
+    <ion-nav-buttons side="right">
+        <a class="button ion-edit" ng-if="isAgendaEditEnabled()" ng-href='#/app/events/sessionEdit?id={{::session.objectId}}'>Edit</a>
+        <a class="button ion-calendar" ng-if="isMobileDevice()" ng-click="createEvent()">Export to phone</a>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-item class="item item-icon-left">
+            <i class="icon icon-{{::session.icon}}"></i>
+            {{::session.name}}
+        </ion-item>
+        <ion-item class="item item-icon-left">
+            <i class="icon ion-clock"></i>
+            {{::session.startDate.iso|date:"HH:mm":'GMT' }}
+            <i ng-if="::session.startDate.iso&&session.endDate.iso">-</i>
+            {{::session.endDate.iso|date:"HH:mm":'GMT' }}
+            <p>{{::session.startDate.iso|date:'EEEE, MMMM d, y'}}</p>
+        </ion-item>
+        <ion-item ng-if="::room.objectId != null" href="#/app/plcrc/room?id={{::room.objectId}}" class="item item-icon-left">
+            <i class="icon ion-home"></i>
+            {{::room.name}}
+            <span class="badge ion-arrow-right-c" />
+        </ion-item>
+        <ion-item ng-if="::spot.objectId != null" href="#/app/city/spot?spotId={{::spot.objectId}}" class="item item-icon-left">
+            <i class="icon ion-pin"></i>
+            {{::spot.name}}
+            <span class="badge ion-arrow-right-c" />
+        </ion-item>
+
+        <ion-item ng-if="::session.presenter != null" class="item item-icon-left">
+            <i class="icon ion-person"></i>
+            {{::session.presenter}}
+        </ion-item>
+        <ion-item ng-if="::session.attendee != null" class="item item-icon-left">
+            <i class="icon ion-person-stalker"></i>
+            <h2>{{::session.attendee}}</h2>
+        </ion-item>
+        <ion-item ng-if="(session.text != null) && (session.text != '')" class="item">
+            <div class="session" ng-bind-html="session.text"></div>
+        </ion-item>
+
+        <ion-item ng-if="::session.icon == 'plane'" class="item item-icon-left" ng-click="goToState('app.city/airport')">
+                <i class="icon ion-information-circled"></i>
+                <h2>Kraków Airport info</h2>
+                <span class="badge ion-arrow-right-c" />
+        </ion-item>
+        <ion-item ng-if="::session.icon == 'laboratory'" class="item item-thumbnail-left">
+            
+                <img src="./img/guidelines/touch2.svg">
+                <h2>
+                    In the measuring rooms additional safety regulations may be enforced. Follow your guide, do not touch anything without clear approval. 
+                </h2>
+            
+        </ion-item>
+    </ion-content>
+</ion-view>
+`

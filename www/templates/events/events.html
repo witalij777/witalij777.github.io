@@ -1,0 +1,29 @@
+﻿<ion-view view-title="Events">
+    <ion-nav-buttons side="right">
+        <a class="button ion-edit" ng-if="isAgendaEditEnabled()" ng-click="goToState('app.eventsEdit')">Edit</a>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="row responsive-sm" ng-repeat="event in filteredEvents" ng-if="$index % 2 == 0">
+                <div class="col">
+                    <a href="#/app/events/event?id={{filteredEvents[$index].objectId}}" class="item item-body">
+                        <img class="full-image" fallback-src="./img/events/event.png" ng-src="{{'./img/events/'+(filteredEvents[$index].objectId)+'.png'}}">
+                        <p>{{filteredEvents[$index].name}}</p>
+                        <span class="badge" ng-class="isLocked(filteredEvents[$index].objectId)?'ion-locked':''" />
+                        <span ng-if="isMultipleDays(filteredEvents[$index])" class="button" style="background: transparent; color : whitesmoke;">{{filteredEvents[$index].startDate.iso|date:"MMM dd":'GMT'}}</span>
+                        <span ng-if="isMultipleDays(filteredEvents[$index])" class="button ion-arrow-swap" style="background: transparent; color : whitesmoke; min-width:0; padding:0 0"></span>
+                        <span class="button" style="background: transparent; color : whitesmoke;">{{filteredEvents[$index].endDate.iso|date:"MMM dd, yyyy":'GMT'}}</span>                        
+                    </a>
+                </div>
+                <div class="col" >
+                    <a ng-if="filteredEvents[$index+1].objectId" href="#/app/events/event?id={{filteredEvents[$index+1].objectId}}"  class="item item-body">
+                        <img class="full-image" fallback-src="./img/events/event.png" ng-src="{{'./img/events/'+(filteredEvents[$index+1].objectId)+'.png'}}">
+                        <p>{{filteredEvents[$index+1].name}}</p>
+                        <span class="badge" ng-class="isLocked(filteredEvents[$index+1].objectId)?'ion-locked':''" />
+                        <span ng-if="isMultipleDays(filteredEvents[$index+1])" class="button" style="background: transparent; color : whitesmoke;">{{filteredEvents[$index+1].startDate.iso|date:"MMM dd":'GMT'}}</span>
+                        <span ng-if="isMultipleDays(filteredEvents[$index+1])" class="button ion-arrow-swap" style="background: transparent; color : whitesmoke; min-width:0; padding:0 0"></span>
+                        <span class="button" style="background: transparent; color : whitesmoke;">{{filteredEvents[$index+1].endDate.iso|date:"MMM dd, yyyy":'GMT'}}</span>                        
+                    </a>
+                </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,47 @@
+<ion-view view-title="About">
+    <ion-content>
+        <ion-list>
+            <ion-item>
+                <ion-slide-box class="slide-box-limit-width" active-slide="selectedSlide.idx">
+                    <ion-slide ng-repeat="i in [1,2,3]" style="min-height:50px">
+                        <img ng-if="$index >= (selectedSlide.idx-1) && $index <= (selectedSlide.idx+1)" class="full-image" ng-src="./img/about/about_{{::i}}.jpg">
+                    </ion-slide>
+                </ion-slide-box>
+            </ion-item>
+            <ion-item class="icon-about-established">
+                Established
+                <span class="item-note">January 1st, 1997</span>
+            </ion-item>
+            <ion-item class="icon-about-employees" menu-close>
+                Employees
+                <span class="badge badge-assertive">160+</span>
+            </ion-item>
+            <ion-item class="item item-divider icon-about-competences">
+                Competences
+            </ion-item>
+            <ion-item class="wrap">
+                <div class="icon-about-list">
+                    Development of medium and high voltage products
+                </div>
+                <div class="icon-about-list">
+                    Power electronics
+                </div>
+                <div class="icon-about-list">
+                    Application of new materials and nanotechnology
+                </div>
+                <div class="icon-about-list">
+                    Multiphisics simulations
+                </div>
+                <div class="icon-about-list">
+                    Condition monitoring and diagnostics
+                </div>
+                <div class="icon-about-list">
+                    Substation automation and distribution automation systems
+                </div>
+                <div class="icon-about-list">
+                    Manufacturability and manufacturing
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

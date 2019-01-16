@@ -1,0 +1,21 @@
+<ion-view view-title="CRC Kraków" cache-view="false">
+    <ion-nav-buttons side="right">
+        <a class="button ion-android-wifi" ng-if="isMobileDevice()" ng-click="goToState('app.ble')">Near me</a>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-list>
+            <ion-item>
+                <ion-slide-box class="slide-box-limit-width" active-slide="selectedSlide.idx">
+                    <ion-slide ng-repeat="image in [1,2,3]" style="min-height:100px">
+                        <img ng-if="$index >= (selectedSlide.idx-1) && $index <= (selectedSlide.idx+1)"  class="full-image" ng-src="./img/plcrc_{{image}}.jpg">
+                    </ion-slide>
+                </ion-slide-box>
+            </ion-item>
+            <ion-item ng-repeat="link in ::links" ng-click="goToState(link.state)">
+                <i class="icon {{::link.icon}}"/>
+                {{::link.title}}
+                <span class="badge" ng-class="::link.toBeLocked&&isLocked?'ion-locked':'ion-arrow-right-c'"/>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

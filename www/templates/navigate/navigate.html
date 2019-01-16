@@ -1,0 +1,36 @@
+﻿<script id="popover.html" type="text/ng-template">
+    <ion-popover-view>
+        <ion-header-bar>
+            <h1 class="title">Show only:</h1>
+            <a class="button ion-ios-toggle" ng-click="changeFiltration()">All/None</a>
+        </ion-header-bar>
+        <ion-content>
+            <ul class="list">
+                <li class="item item-toggle" ng-repeat="type in ::spotTypes" ng-class="'icon-navigate-'+type.id">
+                    {{::type.text}}
+                    <label class="toggle">
+                        <input type="checkbox" ng-change="filterSpots()" ng-model="type.selected">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </li>
+            </ul>
+        </ion-content>
+    </ion-popover-view>
+</script>
+
+<ion-view title="Navigate">
+    <ion-nav-buttons side="right">
+        <a ng-click="showFilterModal($event)" class="button ion-funnel">Filter</a>
+    </ion-nav-buttons>
+
+    <ion-content>
+        <ion-list>
+            <ion-item ng-repeat="spot in filteredSpots|orderBy:'order'" ng-click="navigateToSpot(spot.objectId)" ng-class="'icon-navigate-'+spot.type">
+                {{::spot.name}}
+                <span class="badge ion-arrow-right-c" />
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

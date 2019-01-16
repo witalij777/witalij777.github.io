@@ -1,0 +1,39 @@
+﻿<ion-view view-title="Events">
+    <ion-nav-buttons side="right">
+        <a class="button icon-save" ng-click="save()">Save</a>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="row responsive-sm">
+            <span class="button button-dark icon-left ion-plus-circled" ng-click="addEvent()">Add new event</span>
+        </div>
+        <div class="row responsive-sm" ng-repeat="event in filteredEvents" ng-if="$index % 2 == 0">
+            <div class="col">
+                <a class="item item-body">
+                    <img class="full-image" fallback-src="./img/events/event.png" ng-src="{{'./img/events/'+(filteredEvents[$index].objectId)+'.png'}}">
+                    <span class="button button-dark icon-left ion-locked" ng-click="setPinPicker(filteredEvents[$index])">{{filteredEvents[$index].pinCode?'PIN: '+filteredEvents[$index].pinCode:'Set PIN'}}</span>
+                    <span class="button button-dark icon-left ion-eye-disabled" ng-click="hideAfterPicker(filteredEvents[$index])">{{filteredEvents[$index].hideAfter?'Hide '+filteredEvents[$index].hideAfter+' days after':'Never hide'}}</span>
+                    <span class="button button-dark icon-left ion-trash-b" ng-click="removeEvent(filteredEvents[$index].objectId,$index)"></span>
+                    <input type="text" ng-model="filteredEvents[$index].name">
+                    <span class="badge" />
+                    <span class="button button-dark" ng-click="openDatePicker(filteredEvents[$index].startDate)">{{filteredEvents[$index].startDate.iso|date:"MMM dd, HH:mm":'GMT'}}</span>
+                    
+                    <span class="button button-dark" style="margin-left:5px" ng-click="openDatePicker(filteredEvents[$index].endDate)">{{filteredEvents[$index].endDate.iso|date:"MMM dd, HH:mm":'GMT'}}</span>
+                </a>
+            </div>
+            <div class="col">
+                <a ng-if="filteredEvents[$index+1]" class="item item-body">
+                    <img class="full-image" fallback-src="./img/events/event.png" ng-src="{{'./img/events/'+(filteredEvents[$index+1].objectId)+'.png'}}">
+                    <span class="button button-dark icon-left ion-locked" ng-click="setPinPicker(filteredEvents[$index+1])">{{filteredEvents[$index+1].pinCode?'PIN: '+filteredEvents[$index+1].pinCode:'Set PIN'}}</span>
+                    <span class="button button-dark icon-left ion-eye-disabled" ng-click="hideAfterPicker(filteredEvents[$index+1])">{{filteredEvents[$index+1].hideAfter?'Hide '+filteredEvents[$index+1].hideAfter+' days after':'Never hide'}}</span>
+                    <span class="button button-dark icon-left ion-trash-b" ng-click="removeEvent(filteredEvents[$index+1].objectId,$index+1)"></span>
+                    <input type="text" ng-model="filteredEvents[$index+1].name">
+                    <span class="badge" />
+                    <span class="button button-dark" ng-click="openDatePicker(filteredEvents[$index+1].startDate)">{{filteredEvents[$index+1].startDate.iso|date:"MMM dd, HH:mm":'GMT'}}</span>
+                    <span class="button button-dark" style="margin-left:5px" ng-click="openDatePicker(filteredEvents[$index+1].endDate)">{{filteredEvents[$index+1].endDate.iso|date:"MMM dd, HH:mm":'GMT'}}</span>
+                </a>
+            </div>
+        </div>
+
+    </ion-content>
+
+</ion-view>

@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget android-versionCode="1" id="com.abb.crckrakow" version="0.2.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>CRC Krakow</name>
+    <description>Visit PLCRC project</description>
+    <author email="marcin.bajer@pl.abb.com" href="http://www.abb.com/plcrc/">Marcin Bajer</author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="*" />
+    <allow-navigation href="*" />
+    <preference name="webviewbounce" value="false" />
+    <preference name="UIWebViewBounce" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="android-minSdkVersion" value="19" />
+    <preference name="BackupWebStorage" value="local" />
+    <preference name="SplashScreen" value="screen" />
+    <preference name="SplashScreenDelay" value="7000" />
+    <preference name="Fullscreen" value="False" />
+    <preference name="InAppBrowserStorageEnabled" value="True" />
+    <preference name="ShowTitle" value="True" />
+    <preference name="AndroidLaunchMode" value="standard" />
+    <preference name="CrosswalkAnimatable" value="true" />
+    <preference name="KeepRunning" value="True" />
+    <preference name="xwalkVersion" value="22+" />
+    <preference name="SuppressesIncrementalRendering" value="True" />
+    <platform name="android">
+        <icon density="ldpi" src="resources/android/icon/Android_24_ldpi.png" />
+        <icon density="mdpi" src="resources/android/icon/Android_48_mdpi.png" />
+        <icon density="hdpi" src="resources/android/icon/Android_72_hdpi.png" />
+        <icon density="xhdpi" src="resources/android/icon/Android_96_xhdpi.png" />
+        <icon density="xxhdpi" src="resources/android/icon/Android_144_xxhdpi.png" />
+        <icon density="xxxhdpi" src="resources/android/icon/Android_144_xxhdpi.png" />
+        <splash density="land-xxhdpi" src="resources/android/splash/drawable-land-screen.png" />
+        <splash density="port-xxhdpi" src="resources/android/splash/drawable-port-screen.png" />
+    </platform>
+    <allow-navigation href="http://10.3.57.200:8100" />
+    <allow-navigation href="http://192.168.11.106:8100" />
+    <allow-navigation href="http://192.168.11.48:8100" />
+    <engine name="android" spec="6.3.0" />
+    <plugin name="com.telerik.plugins.nativepagetransitions" spec="0.6.5" />
+    <plugin name="cordova-plugin-app-version" spec="0.1.8" />
+    <plugin name="cordova-plugin-ble-central" spec="1.0.4" />
+    <plugin name="cordova-plugin-calendar" spec="4.4.7" />
+    <plugin name="cordova-plugin-email-composer" spec="0.8.3" />
+    <plugin name="cordova-plugin-inappbrowser" spec="1.5.0" />
+    <plugin name="cordova-plugin-network-information" spec="1.2.0" />
+    <plugin name="cordova-plugin-splashscreen" spec="3.1.0" />
+    <plugin name="cordova-plugin-whitelist" spec="1.3.0" />
+    <plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" spec="2.9.9" />
+    <plugin name="cordova-plugin-certificates" spec="^0.6.4" />
+</widget>

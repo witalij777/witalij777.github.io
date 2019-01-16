@@ -1,0 +1,10 @@
+﻿
+<ion-view title="{{::spot.address}}">
+    <ion-nav-buttons side="right">
+        <a class="button ion-navigate" ng-if="isMobileDevice()" ng-click="getDirections()">Navigate</a>
+    </ion-nav-buttons>
+    <ion-content scroll="true" overflow-scroll=true>
+        <div id="map" data-tap-disabled="true">            
+        </div>
+    </ion-content>
+</ion-view>

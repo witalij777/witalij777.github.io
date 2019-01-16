@@ -1,0 +1,22 @@
+﻿<ion-view view-title="Our values">
+    <ion-content>
+        <div class="row responsive-sm" ng-repeat="element in ::elements" ng-if="$index % 2 == 0">
+            <div class="col item" ng-click="elements[$index].open=!elements[$index].open">
+                <a class="row item-body">   
+                    <div class="col col-40" ng-include="'./img/plabb/'+elements[$index].image"></div>
+                    <div class="col col-60 dna-header">{{::elements[$index].name}}</div>
+                </a>
+                <span class="item-note" ng-class="elements[$index].open?'ion-chevron-up':'ion-chevron-down'">&nbsp;</span>
+                <h2 class="row slide-toggle" ng-show="elements[$index].open">{{::elements[$index].description}}</h2>
+            </div>
+            <div class="col item" ng-click="elements[$index+1].open=!elements[$index+1].open">
+                <a ng-if="elements[$index+1]" class="item-body row">
+                    <div class="col col-40" ng-include="'./img/plabb/'+elements[$index+1].image"></div>
+                    <div class="col col-60 dna-header">{{::elements[$index+1].name}}</div>
+                </a>
+                <span class="item-note" ng-class="elements[$index+1].open?'ion-chevron-up':'ion-chevron-down'">&nbsp;</span>
+                <h2 class="row slide-toggle" ng-show="elements[$index+1].open"  ng-class="">{{::elements[$index+1].description}}</h2>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

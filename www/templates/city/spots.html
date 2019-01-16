@@ -1,0 +1,12 @@
+﻿<ion-view title="{{spotType|spotType}}">
+    <ion-content>
+        <div class="list">
+            <a class="item item-thumbnail-left" ng-repeat="spot in ::spots|filter:{ type: spotType }|orderBy:'order'" href="#/app/city/spot?spotId={{spot.objectId}}">
+                <img fallback-src="./img/city/{{::spotType}}/mini.jpg" ng-src="{{'./img/city/'+spotType+'/'+(spot.objectId)+'_mini.jpg'}}">
+                <h2>{{::spot.name}}</h2>
+                <p>{{::spot.distance|distance}}</p>
+                <span class="badge ion-arrow-right-c" />
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

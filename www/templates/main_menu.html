@@ -1,0 +1,18 @@
+<ion-view view-title="{{::view_title}}">
+    <ion-content>
+        <div class="row responsive-sm" ng-repeat="item in ::menu_items" ng-if="$index % 2 == 0">
+            <div class="col">
+                <div ng-click="goToState(menu_items[$index].state)" class="item item-body">
+                    <img class="full-image" ng-src="{{::menu_items[$index].img}}">
+                    <p>{{::menu_items[$index].title}}</p>
+                </div>
+            </div>
+            <div class="col">
+                <div ng-if="$index<menu_items.length-1" ng-click="goToState(menu_items[$index+1].state)" class="item item-body">
+                    <img class="full-image" ng-src="{{::menu_items[$index+1].img}}">
+                    <p>{{::menu_items[$index+1].title}}</p>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

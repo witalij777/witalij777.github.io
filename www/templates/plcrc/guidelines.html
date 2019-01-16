@@ -1,0 +1,12 @@
+﻿<ion-view view-title="Visitors guidelines">
+    <ion-content>
+        <div class="list">
+            <div class="item" ng-class="::step.img?'item-thumbnail-left':''" ng-repeat="step in ::guideSteps">
+                <img ng-if="::step.img" ng-src="{{::step.img}}">
+                <h2>
+                    {{::step.text}}
+                </h2>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

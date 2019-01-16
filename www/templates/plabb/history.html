@@ -1,0 +1,32 @@
+﻿<ion-view view-title="Our heritage">
+    <ion-content>
+
+        <ion-item>
+            <div class="item item-divider">
+                History
+            </div>
+            <h2 class="row">
+                ABB is the product of many acquisitions and mergers, but primarily the 1988 coming together of ASEA of Sweden and Switzerland's BBC, formerly known as Brown Boveri, two of the proudest and best known names in European electrical engineering history. In subsequent years, the combined business, which once included products as diverse as turbines and railway engines, was streamlined to focus on today's priorities of power and automation.
+            </h2>
+        </ion-item>
+        <ion-item>
+            <div class="item item-divider">
+                Key facts
+            </div>
+            <div class="row">
+                <ion-slide-box class="col-80" active-slide="selectedSlide.idx">
+                    <ion-slide ng-repeat="element in elements" style="min-height:100px">
+                        <img ng-if="$index >= (selectedSlide.idx-1) && $index <= (selectedSlide.idx+1)" class="full-image" ng-src="./img/plabb/{{::element.img}}">
+                        <h2 class="row slide-toggle" ng-bind-html="::element.text"></h2>
+                        <br/>
+                    </ion-slide>
+                </ion-slide-box>
+                <div class="col col-20" on-swipe-down="swipeDown()" on-swipe-up="swipeUp()">
+                    <ion-radio ng-if="checkIfShow($index)" ng-model="selectedSlide.idx" ng-value="$index" class="location_swipe" icon="ion-arrow-left-b" ng-repeat="element in ::elements">
+                        {{::element.header}}
+                    </ion-radio>
+                </div>
+            </div>
+        </ion-item>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,38 @@
+﻿<ion-view view-title="Office plan">
+    <ion-nav-buttons side="right">
+        <a ng-if="selectableRooms[selectedRoom.index].type == 'meeting'" class="button ion-android-search" href="#/app/plcrc/room?id={{selectableRooms[selectedRoom.index].id}}">Room details</a>
+    </ion-nav-buttons>
+    <ion-content>
+        <div ng-include="'./img/plan/common.svg'"></div>
+        <ion-slide-box class="list slides slide-box-limit-width" on-slide-changed="slideHasChanged($index)" active-slide="selectedFloor.index">
+            <ion-slide id="slideBox" ng-click="showImage()" ng-repeat="floor in selectableFloors" style="min-height:50px">
+                <div ng-if="$index >= (selectedFloor.index-1) && $index <= (selectedFloor.index+1)" ng-include="floor.url"></div>
+            </ion-slide>
+        </ion-slide-box>
+        <div class="floor-name">{{selectedFloor.index-1}}</div>
+        <ion-list>            
+            <ion-item class="icon-plcrc-location item-select">
+                Location
+                <select ng-model="selectedLocation.index" ng-options="parseInt(idx) as location.name for (idx, location) in ::selectableLocations" ng-change="selectedLocationChanged(selectedLocation.index)"  convert-to-number></select>
+            </ion-item>
+            <ion-item class="ion-social-buffer-outline item-select">
+                Floor
+                <select ng-model="selectedFloor.index" ng-options="parseInt(idx) as floor.name for (idx, floor) in selectableFloors" ng-change="selectedFloorChanged(selectedFloor.index)" convert-to-number></select>
+            </ion-item>
+            <ion-item class="icon-room item-select">
+                Selection
+                <select ng-model="selectedRoom.index" ng-options="parseInt(idx) as room.name for (idx, room) in selectableRooms" ng-change="selectedRoomChanged(selectedRoom.index)" convert-to-number></select>
+
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
+<script id="image-modal.html" type="text/ng-template">
+    <div ng-click="closeModal()">
+        <ion-modal-view class="modal">
+            <ion-scroll zooming="true" style="height: 430px" direction="xy">
+                <div ng-include="selectableFloors[selectedFloor.index].url" style="width:700px" ></div>
+            </ion-scroll>
+        </ion-modal-view>
+    </div>
+</script>

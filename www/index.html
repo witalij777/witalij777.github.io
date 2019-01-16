@@ -1,0 +1,134 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+          "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=600">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' http://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com http://fonts.gstatic.com 'unsafe-inline'; img-src 'self' http://*.googleapis.com http://maps.gstatic.com http://csi.gstatic.com 'unsafe-inline'; script-src 'self' https://code.angularjs.org https://maps.googleapis.com https://*.googleapis.com https://maps.gstatic.com http://localhost:*  https://easyid.scansafe.net/* https://easyid.scansafe.com/* 'unsafe-inline' 'unsafe-eval'; frame-src 'self' gap://ready; connect-src 'self' https://api.parse.com https://easyid.scansafe.net/* https://easyid.scansafe.com/* https://parsejs7710.cloudapp.net:* https://visitabboxygen.azurewebsites.net:* https://visitabbprod28.azurewebsites.net:* ws://localhost:* https://leanoffice.pl.abb.com ">
+    <meta name="format-detection" content="telephone=no" />
+    <title></title> 
+
+    <!-- For PWA -->
+    
+    <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff"> 
+
+
+    <!--   ----------------------PWA end-------------------   -->
+
+    <!-- build:css dist_css/styles.css -->
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link rel="stylesheet" href="lib/angular-bootstrap-datetimepicker/src/css/datetimepicker.css" />
+    <link href="css/style.css" rel="stylesheet">
+    <!-- endbuild -->
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+    <!-- ionic/angularjs js -->
+    <!-- build:js dist_js/cordova.min.js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script type="text/javascript" src="lib/ng-cordova.min.js"></script>
+    <!-- endbuild -->
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+
+    <script src="lib/lodash.underscore.min.js"></script>
+    <script src="lib/parse.min.js"></script>
+    <!-- build:js dist_js/angular-mocks.min.js -->
+    <script src="lib/angular-mocks/angular-mocks.js"></script>
+    <!-- endbuild -->
+    <!-- build:js dist_js/datetimepicker.min.js -->
+    <script type="text/javascript" src="lib/angular-bootstrap-datetimepicker/node_modules/moment/moment.js"></script>
+    <script type="text/javascript" src="lib/angular-bootstrap-datetimepicker/src/js/datetimepicker.js"></script>
+    <script type="text/javascript" src="lib/angular-bootstrap-datetimepicker/src/js/datetimepicker.templates.js"></script>
+    <!-- endbuild -->
+    <!-- build:js dist_js/app.js -->
+    <script src="js/templates.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/controllers/plcrc/plcrc.js"></script>
+    <script src="js/controllers/plcrc/about.js"></script>
+    <script src="js/controllers/plcrc/plan.js"></script>
+    <script src="js/controllers/plcrc/rooms.js"></script>
+    <script src="js/controllers/plcrc/room.js"></script>
+    <script src="js/controllers/plcrc/contact.js"></script>
+    <script src="js/controllers/plcrc/evacuation.js"></script>
+    <script src="js/controllers/plcrc/whoiswho.js"></script>
+    <script src="js/controllers/plcrc/guidelines.js"></script>
+    <script src="js/controllers/settings.js"></script>
+    <script src="js/controllers/events/events.js"></script>
+    <script src="js/controllers/events/eventsEdit.js"></script>
+    <script src="js/controllers/events/event.js"></script>
+    <script src="js/controllers/events/eventEdit.js"></script>
+    <script src="js/controllers/events/session.js"></script>
+    <script src="js/controllers/events/sessionEdit.js"></script>
+    <script src="js/controllers/navigate.js"></script>
+    <script src="js/controllers/location.js"></script>
+    <script src="js/controllers/login.js"></script>
+    <script src="js/controllers/city/city_menu.js"></script>
+    <script src="js/controllers/city/city.js"></script>
+    <script src="js/controllers/city/airport.js"></script>
+    <script src="js/controllers/city/spots.js"></script>
+    <script src="js/controllers/city/spot.js"></script>
+    <script src="js/controllers/ble/ble.js"></script>
+    <script src="js/controllers/plabb/plabb.js"></script>
+    <script src="js/controllers/plabb/dna.js"></script>
+    <script src="js/controllers/plabb/technology.js"></script>
+    <script src="js/controllers/plabb/history.js"></script>
+    <script src="js/controllers/install/install.js"></script>
+    <script src="js/services/localStorage.js"></script>
+    <script src="js/services/remoteStorage.js"></script>
+    <script src="js/services/authservice.js"></script>
+    <script src="js/services/bleService.js"></script>
+    <script src="js/constants.js"></script>
+    <script src="js/filters.js"></script>
+    <script src="js/directives.js"></script>
+
+    <!-- endbuild -->
+</head>
+
+<body ng-app="visit_plcrc" ng-strict-di>
+    <div class="parent">
+        <div class="preview">
+            <ion-nav-view>
+            </ion-nav-view>
+            <!--<ion-footer-bar id="logo">
+                <img src="./img/logo.png" style="margin-left:auto !important" />
+            </ion-footer-bar>-->
+        </div>
+    </div>
+
+    <!-- script for PWA  -->  
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {  
+            navigator.serviceWorker.register('js/sw.js').then(
+                function(registration) {
+                // Registration was successful
+                console.log('ServiceWorker registration successful with scope: ', registration.scope); },
+                function(err) {
+                // registration failed :(
+                console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+    </script> 
+
+</body>
+</html>

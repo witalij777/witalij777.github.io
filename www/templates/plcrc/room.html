@@ -1,0 +1,39 @@
+﻿<script id="vc.html" type="text/ng-template">
+    <ion-popover-view style="width:90%; height:69px">
+        <ion-content>
+            <div class="list">
+                <a class="item item-icon-left">
+                    <i class="icon ion-social-whatsapp-outline"></i>Name:
+                    <span class="item-note">{{attribute.value}}</span>
+                </a>
+             </div>
+        </ion-content>
+    </ion-popover-view>
+</script>
+
+<ion-view view-title="{{::room.name}}">
+    <ion-nav-buttons side="right">
+        <a class="button ion-android-alert" href="#/app/plcrc/evacuation?roomId={{::room.objectId}}">Evacuate me</a>
+    </ion-nav-buttons>
+    <ion-content class="slide-box-limit-width">
+        <ion-item>
+            <img class="full-image" ng-src="./img/rooms/{{::room.name}}.jpg">
+        </ion-item>
+        <div class="row" ng-repeat="roomAttribute in ::roomAttributes | orderBy: order" ng-if="$index % 2 == 0">
+            <div class="col" ng-click="makeLink(roomAttributes[$index],$event)">
+                <span ng-class="'icon-room-'+roomAttributes[$index].icon">
+                        <span ng-if="::roomAttributes[$index].type!='vc'">{{::roomAttributes[$index].value}}</span>
+                </span>
+                <span class="ion-arrow-right-c" ng-if="isLink(roomAttributes[$index])"></span>
+            </div>
+
+            <div ng-if="roomAttributes[$index+1]" class="col" ng-click="makeLink(roomAttributes[$index+1],$event)">
+                <span ng-class="'icon-room-'+roomAttributes[$index+1].icon">
+                    <span ng-if="::roomAttributes[$index+1].type!='vc'">{{::roomAttributes[$index+1].value}}</span>
+                </span>
+                <span class="ion-arrow-right-c" ng-if="isLink(roomAttributes[$index+1])"></span>
+            </div>
+
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,837 @@
+﻿<ion-view view-title="Settings">
+    <ion-content>
+        <ion-list>
+            <ion-item ng-click="getData()" class="icon-settings-load" menu-close>
+                Load data
+            </ion-item>
+            <!--<ion-item class="ion-edit item-toggle" ng-click="enableEditDialog()">
+                        Allow agenda edit mode
+                        <label class="toggle toggle-assertive">
+                            <input type="checkbox" ng-model="enableAgendaEdit.value">
+                            <div class="track">
+                                <div class="handle"></div>
+                            </div>
+                        </label>
+            </ion-item>
+            <ion-item ng-click="goToState('install')" class="ion-android-exit" menu-close>
+                Install
+            </ion-item>-->
+            <ion-item ng-click="feedback()" class="icon-bug" menu-close>
+                Send feedback
+            </ion-item>
+            <ion-item ng-click="oss()" class="icon-settings-version" menu-close>
+                Open Source Components
+            </ion-item>
+            <ion-item ng-click="about()" class="icon-settings-version" menu-close>
+                About
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
+
+<script id="about.html" type="text/ng-template">
+    <div class="list">
+
+        <a class="item item-icon-left">
+            <i class="icon ion-ios-pricetags-outline"></i>
+            Application
+            <span class="item-note">
+                Visit CRC Krakow
+            </span>
+        </a>
+
+        <a class="item item-icon-left item-icon-right" href="#">
+            <i class="icon ion-fork-repo"></i>
+            Version
+            <span class="item-note">
+                {{appVersion}}
+            </span>
+        </a>
+
+        <a class="item item-icon-left item-icon-right" href="#">
+            <i class="icon ion-ios-pulse-strong"></i>
+            Build
+            <span class="item-note">
+                {{appBuild}}
+            </span>
+        </a>
+
+    </div>
+</script>
+
+<script id="oss.html" type="text/ng-template">
+Following OSS components has been used in application:
+<table style="font-size:8px">
+<tr>
+   <th>Component</th>
+   <th>Version</th>
+   <th>License</th>
+</tr>
+<tr>
+   <td>amdefine</td>
+   <td>1.0.0</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>angular-bootstrap-datetimepicker</td>
+   <td>1.0.1</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>angular-mocks</td>
+   <td>1.4.9</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>angular.js</td>
+   <td>1.4.3</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>angular.js</td>
+   <td>1.5.2</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>angular.js</td>
+   <td>1.4.9</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>AngularJS Animate</td>
+   <td>1.4.3</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>ansi.js</td>
+   <td>Unspecified</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>Apache Cordova</td>
+   <td>5.1.1</td>
+   <td>Apache License 2.0</td>
+</tr>
+<tr>
+   <td>async</td>
+   <td>0.2.10</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>aws-sign</td>
+   <td>0.6.1</td>
+   <td>Apache License 2.0</td>
+</tr>
+<tr>
+   <td>aws4</td>
+   <td>1.4.1</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>bestiejs's platform.js</td>
+   <td>Unspecified</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>bl</td>
+   <td>1.1.2</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>bluebird</td>
+   <td>2.9.34</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>Bootstrap</td>
+   <td>3.3.5</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>bower</td>
+   <td>1.7.9</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>buffer-to-vinyl</td>
+   <td>1.1.0</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>bufferstreams</td>
+   <td>1.1.1</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>caseless</td>
+   <td>0.11.1</td>
+   <td>Apache License 2.0</td>
+</tr>
+<tr>
+   <td>clean-css</td>
+   <td>3.4.10</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>com.telerik.plugins.<br>nativepagetransitions</td>
+   <td>0.6.5</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>combined-stream</td>
+   <td>1.0.5</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>commander.js</td>
+   <td>2.9.0</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>concat-stream</td>
+   <td>Unspecified</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>cordova-android</td>
+   <td>Unspecified</td>
+   <td>Apache License 2.0</td>
+</tr>
+<tr>
+   <td>cordova-browser</td>
+   <td>4.1.0</td>
+   <td>Apache License 2.0</td>
+</tr>
+<tr>
+   <td>cordova-lib</td>
+   <td>Unspecified</td>
+   <td>Apache License 2.0</td>
+</tr>
+<tr>
+   <td>cordova-plugin-app-version</td>
+   <td>0.1.8</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>cordova-plugin-calendar</td>
+   <td>Unspecified</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>cordova-plugin-crosswalk-webview</td>
+   <td>Unspecified</td>
+   <td>Apache License 2.0</td>
+</tr>
+<tr>
+   <td>cordova-plugin-email-composer</td>
+   <td>Unspecified</td>
+   <td>Apache License 2.0</td>
+</tr>
+<tr>
+   <td>cordova-plugin-inappbrowser</td>
+   <td>1.4.0</td>
+   <td>Apache License 2.0</td>
+</tr>
+<tr>
+   <td>cordova-plugin-network-information</td>
+   <td>1.2.0</td>
+   <td>Apache License 2.0</td>
+</tr>
+<tr>
+   <td>cordova-plugin-pebblecode-ble-central</td>
+   <td>1.0.4</td>
+   <td>Apache License 2.0</td>
+</tr>
+<tr>
+   <td>cordova-plugin-whitelist</td>
+   <td>Unspecified</td>
+   <td>Apache License 2.0</td>
+</tr>
+<tr>
+   <td>cordova-splashscreen</td>
+   <td>3.1.0</td>
+   <td>Apache License 2.0</td>
+</tr>
+<tr>
+   <td>cordova-uglify</td>
+   <td>Unspecified</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>cross-spawn</td>
+   <td>4.0.0</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>cross-spawn-async</td>
+   <td>2.2.4</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>crosswalk</td>
+   <td>Unspecified</td>
+   <td>BSD 3-clause "New" or "Revised" License</td>
+</tr>
+<tr>
+   <td>dispatch-cordova-plugin-crosswalk-webview</td>
+   <td>Unspecified</td>
+   <td>Apache License 2.0</td>
+</tr>
+<tr>
+   <td>duplexer2.jbenet</td>
+   <td>0.1.4</td>
+   <td>BSD 3-clause "New" or "Revised" License</td>
+</tr>
+<tr>
+   <td>Font-Awesome</td>
+   <td>Unspecified</td>
+   <td>SIL Open Font License 1.1</td>
+</tr>
+<tr>
+   <td>forever-agent</td>
+   <td>0.6.1</td>
+   <td>Apache License 2.0</td>
+</tr>
+<tr>
+   <td>fork-stream</td>
+   <td>0.0.4</td>
+   <td>BSD 3-clause "New" or "Revised" License</td>
+</tr>
+<tr>
+   <td>fstream</td>
+   <td>1.0.10</td>
+   <td>ISC License</td>
+</tr>
+<tr>
+   <td>gifsicle</td>
+   <td>3.0.3</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>Google Maps for AngularJS</td>
+   <td>2.3.2</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>gradle</td>
+   <td>Unspecified</td>
+   <td>Apache License 2.0</td>
+</tr>
+<tr>
+   <td>grunt-contrib-compress</td>
+   <td>1.1.1</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>grunt-contrib-uglify</td>
+   <td>1.0.1</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>gulp</td>
+   <td>Unspecified</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>gulp-angular-templatecache</td>
+   <td>2.0.0</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>gulp-concat</td>
+   <td>2.6.0</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>gulp-minify-css</td>
+   <td>1.2.4</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>gulp-ng-annotate</td>
+   <td>2.0.0</td>
+   <td>Creative Commons Zero v1.0 Universal</td>
+</tr>
+<tr>
+   <td>gulp-rename</td>
+   <td>1.2.2</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>gulp-sass</td>
+   <td>Unspecified</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>gulp-svgmin</td>
+   <td>Unspecified</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>gulp-useref</td>
+   <td>Unspecified</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>gulp-util</td>
+   <td>3.0.7</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>har-validator</td>
+   <td>2.1.3</td>
+   <td>ISC License</td>
+</tr>
+<tr>
+   <td>hawk</td>
+   <td>5.1.2</td>
+   <td>BSD 3-clause "New" or "Revised" License</td>
+</tr>
+<tr>
+   <td>imagemin-jpegtran</td>
+   <td>Unspecified</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>imagemin-optipng</td>
+   <td>Unspecified</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>imagemin-svgo</td>
+   <td>Unspecified</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>inherits</td>
+   <td>2.0.1</td>
+   <td>ISC License</td>
+</tr>
+<tr>
+   <td>ini</td>
+   <td>1.3.4</td>
+   <td>ISC License</td>
+</tr>
+<tr>
+   <td>ionic</td>
+   <td>1.2.4</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>is-absolute</td>
+   <td>0.2.5</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>is-gif</td>
+   <td>Unspecified</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>is-jpg</td>
+   <td>Unspecified</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>is-my-json-valid</td>
+   <td>2.13.1</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>is-typedarray</td>
+   <td>1.0.0</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>isstream</td>
+   <td>0.1.2</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>js.merge</td>
+   <td>1.2.0</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>jshint</td>
+   <td>2.9.3</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>json-stringify-safe</td>
+   <td>5.0.1</td>
+   <td>ISC License</td>
+</tr>
+<tr>
+   <td>lodash</td>
+   <td>2.4.1</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>lodash</td>
+   <td>4.5.1</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>lodash</td>
+   <td>3.7.0</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>lodash</td>
+   <td>4.6.1</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>meow</td>
+   <td>3.7.0</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>mime-types</td>
+   <td>2.0.14</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>minimatch</td>
+   <td>1.0.0</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>mkdirp</td>
+   <td>0.5.1</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>moment</td>
+   <td>2.12.0</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>nan</td>
+   <td>2.2.0</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>ng-annotate</td>
+   <td>Unspecified</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>ng-cordova</td>
+   <td>Unspecified</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>ngmap</td>
+   <td>1.16.8</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>node-archiver</td>
+   <td>0.20.0</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>node-bzip</td>
+   <td>Unspecified</td>
+   <td>GNU Lesser General Public License v2.1 or later</td>
+</tr>
+<tr>
+   <td>node-concat-stream</td>
+   <td>1.5.1</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>node-extend</td>
+   <td>3.0.0</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>node-form-data</td>
+   <td>0.2.0</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>node-fs-extra</td>
+   <td>Unspecified</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>node-glob</td>
+   <td>Unspecified</td>
+   <td>ISC License</td>
+</tr>
+<tr>
+   <td>node-glob</td>
+   <td>7.0.4</td>
+   <td>BSD 2-clause "Simplified" License</td>
+</tr>
+<tr>
+   <td>node-graceful-fs</td>
+   <td>Unspecified</td>
+   <td>ISC License</td>
+</tr>
+<tr>
+   <td>node-gyp</td>
+   <td>3.4.0</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>node-http-signature</td>
+   <td>1.1.1</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>node-lru-cache</td>
+   <td>2.7.3</td>
+   <td>ISC License</td>
+</tr>
+<tr>
+   <td>node-mv</td>
+   <td>Unspecified</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>node-optimist</td>
+   <td>0.3.7</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>node-path-array</td>
+   <td>1.0.1</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>node-pre-gyp-qn</td>
+   <td>0.6.29</td>
+   <td>BSD 3-clause "New" or "Revised" License</td>
+</tr>
+<tr>
+   <td>node-semver</td>
+   <td>5.3.0</td>
+   <td>ISC License</td>
+</tr>
+<tr>
+   <td>node-tar</td>
+   <td>Unspecified</td>
+   <td>ISC License</td>
+</tr>
+<tr>
+   <td>node-which</td>
+   <td>1.2.10</td>
+   <td>ISC License</td>
+</tr>
+<tr>
+   <td>nopt</td>
+   <td>3.0.6</td>
+   <td>ISC License</td>
+</tr>
+<tr>
+   <td>npmlog</td>
+   <td>4.0.0</td>
+   <td>ISC License</td>
+</tr>
+<tr>
+   <td>oauth-sign</td>
+   <td>0.8.2</td>
+   <td>Apache License 2.0</td>
+</tr>
+<tr>
+   <td>OptiPNG</td>
+   <td>0.7.5</td>
+   <td>zlib License</td>
+</tr>
+<tr>
+   <td>os-shim</td>
+   <td>0.1.3</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>osenv</td>
+   <td>0.1.3</td>
+   <td>ISC License</td>
+</tr>
+<tr>
+   <td>pinkie-promise</td>
+   <td>2.0.1</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>Q in javascript</td>
+   <td>Unspecified</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>qs</td>
+   <td>6.2.1</td>
+   <td>BSD 3-clause "New" or "Revised" License</td>
+</tr>
+<tr>
+   <td>rc</td>
+   <td>1.1.6</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>readable-stream</td>
+   <td>2.1.4</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>request</td>
+   <td>2.40.1</td>
+   <td>Apache License 2.0</td>
+</tr>
+<tr>
+   <td>rimraf</td>
+   <td>2.5.4</td>
+   <td>ISC License</td>
+</tr>
+<tr>
+   <td>sax-js</td>
+   <td>Unspecified</td>
+   <td>ISC License</td>
+</tr>
+<tr>
+   <td>shelljs</td>
+   <td>0.3.0</td>
+   <td>BSD 3-clause "New" or "Revised" License</td>
+</tr>
+<tr>
+   <td>sindresorhus's chalk</td>
+   <td>1.1.3</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>source-map</td>
+   <td>0.4.4</td>
+   <td>BSD 3-clause "New" or "Revised" License</td>
+</tr>
+<tr>
+   <td>source-map</td>
+   <td>0.5.6</td>
+   <td>BSD 3-clause "New" or "Revised" License</td>
+</tr>
+<tr>
+   <td>spawn-sync</td>
+   <td>1.0.15</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>spdx-correct</td>
+   <td>1.0.2</td>
+   <td>Apache License 2.0</td>
+</tr>
+<tr>
+   <td>spdx-exceptions</td>
+   <td>Unspecified</td>
+   <td>Creative Commons Attribution Share Alike 3.0</td>
+</tr>
+<tr>
+   <td>spdx-expression-parse</td>
+   <td>1.0.2</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>spdx-license-ids</td>
+   <td>Unspecified</td>
+   <td>The Unlicense</td>
+</tr>
+<tr>
+   <td>sprintf-js</td>
+   <td>Unspecified</td>
+   <td>BSD 3-clause "New" or "Revised" License</td>
+</tr>
+<tr>
+   <td>StringStream</td>
+   <td>0.0.5</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>superhuman-node-uuid</td>
+   <td>1.4.9</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>tar-pack</td>
+   <td>3.1.4</td>
+   <td>BSD 2-clause "Simplified" License</td>
+</tr>
+<tr>
+   <td>through2</td>
+   <td>Unspecified</td>
+   <td>MIT +no-false-attribs license</td>
+</tr>
+<tr>
+   <td>tough-cookie</td>
+   <td>Unspecified</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>tough-cookie</td>
+   <td>2.3.1</td>
+   <td>BSD 3-clause "New" or "Revised" License</td>
+</tr>
+<tr>
+   <td>try-thread-sleep</td>
+   <td>1.0.0</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>tunnel-agent</td>
+   <td>0.4.3</td>
+   <td>Apache License 2.0</td>
+</tr>
+<tr>
+   <td>tweetnacl-js</td>
+   <td>0.14.3</td>
+   <td>Public Domain</td>
+</tr>
+<tr>
+   <td>uglify-to-browserify</td>
+   <td>1.0.2</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>UglifyJS2</td>
+   <td>2.7.0</td>
+   <td>BSD 2-clause "Simplified" License</td>
+</tr>
+<tr>
+   <td>ui-router</td>
+   <td>0.2.13</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>uk.co.workingedge.phonegap.<br>plugin.launchnavigator</td>
+   <td>2.9.9</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>validate-npm-package-license</td>
+   <td>3.0.1</td>
+   <td>Apache License 2.0</td>
+</tr>
+<tr>
+   <td>vinyl-fs</td>
+   <td>2.4.3</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>vinyl-sourcemaps-apply</td>
+   <td>Unspecified</td>
+   <td>ISC License</td>
+</tr>
+<tr>
+   <td>xtend</td>
+   <td>4.0.1</td>
+   <td>MIT License</td>
+</tr>
+<tr>
+   <td>yargs</td>
+   <td>3.10.0</td>
+   <td>MIT License</td>
+</tr>
+</table>
+  
+</script>

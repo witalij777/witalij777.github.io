@@ -1,0 +1,23 @@
+﻿<ion-view view-title="Airport Balice">
+    <ion-content>
+        <ion-list>
+            <ion-item>
+                <ion-slide-box on-slide-changed="slideHasChanged($index)">
+                    <ion-slide ng-repeat="i in [1,2,3]">
+                        <img class="full-image" ng-src="./img/city/airport/balice_{{::i}}.jpg">
+                    </ion-slide>
+                </ion-slide-box>
+            </ion-item>
+            <ion-item class="item" ng-repeat="attribute in ::airportAttributes|orderBy:'order'" browse-to="{{makeLink(attribute.icon) ? attribute.value:null}}">
+                <div class="icon-city-{{::attribute.icon}}">
+                    {{::attribute.title}}
+                    <span ng-if="newLine(attribute.icon)">:<br />
+                        <b>{{::attribute.value}}</b>
+                    </span>
+                    <span ng-if="showValue(attribute.icon)" class="badge">{{::attribute.value}}</span>
+                    <span ng-if="makeLink(attribute.icon)" class="badge ion-arrow-right-c" />
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
